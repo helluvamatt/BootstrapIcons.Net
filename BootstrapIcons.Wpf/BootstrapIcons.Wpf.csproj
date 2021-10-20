@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <LangVersion>default</LangVersion>
+        <Nullable>enable</Nullable>
+        <UseWpf>true</UseWpf>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.6.1</PackageVersion>
+        <Title>Bootstrap icons for WPF</Title>
+        <Authors>Matt Schneeberger</Authors>
+        <Description>Use Bootstrap icons with WPF</Description>
+        <Copyright>© 2021 Matt Schneeberger</Copyright>
+        <PackageProjectUrl>https://github.com/helluvamatt/BootstrapIcons.Wpf</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/helluvamatt/BootstrapIcons.Wpf</RepositoryUrl>
+        <RepositoryType>github</RepositoryType>
+        <PackageTags>wpf, bootstrap, icons</PackageTags>
+    </PropertyGroup>
+
+</Project>

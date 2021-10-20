@@ -1,0 +1,8 @@
+# .NET / VS / Rider excludes
+.idea/
+bin/
+obj/
+node_modules/
+
+# Project specific excludes
+BootstrapIconGlyph.generated.cs

@@ -1,0 +1,19 @@
+{
+  "name": "bootstrap-icons-wpf",
+  "version": "1.6.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/helluvamatt/BootstrapIcons.Wpf"
+  },
+  "devDependencies": {
+    "camelcase": "^6.2.0",
+    "jsdom": "^18.0.0"
+  },
+  "dependencies": {
+    "bootstrap-icons": "^1.6.1"
+  },
+  "scripts": {
+    "build": "node icongen.js"
+  }
+}
