@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <UseWpf>true</UseWpf>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>1.6.1</PackageVersion>
+        <Version>0.0.0-dev</Version>
         <Title>Bootstrap icons for WPF</Title>
         <Authors>Matt Schneeberger</Authors>
         <Description>Use Bootstrap icons with WPF</Description>
