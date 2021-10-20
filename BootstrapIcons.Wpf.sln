@@ -17,6 +17,8 @@ ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootstrapIcons.Wpf.Demo", "BootstrapIcons.Wpf.Demo\BootstrapIcons.Wpf.Demo.csproj", "{1DE6548D-3CB7-4913-AFE3-37461AA44688}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{22D80E0D-4C4F-4271-8215-2426EA4A3B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22D80E0D-4C4F-4271-8215-2426EA4A3B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22D80E0D-4C4F-4271-8215-2426EA4A3B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{45A2579A-6C16-47B9-9ACF-1DC7544BFAAE} = {FB045C0A-FF30-49F5-B959-0170FC7E74C1}
