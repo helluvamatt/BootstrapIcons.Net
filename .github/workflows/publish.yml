@@ -37,4 +37,4 @@ jobs:
       - name: Generate NuGet package
         run: dotnet pack --no-build --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.Wpf/BootstrapIcons.Wpf.csproj
       - name: Publish NuGet package
-        run: dotnet nuget push "BootstrapIcons.Wpf/bin/Release/*.nupkg" --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/helluvamatt/index.json"
+        run: dotnet nuget push BootstrapIcons.Wpf/bin/Release/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s "https://nuget.pkg.github.com/helluvamatt/index.json"
