@@ -19,9 +19,9 @@ jobs:
         uses: actions/setup-node@v2.4.1
       - name: Restore .NET dependencies
         run: dotnet restore
-      - name: Restore Node.js dependencies
-        run: npm ci
-      - name: Build
+      - name: Pre-Build
         run: |
+          npm ci
           npm run build
-          dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}"
+      - name: Build
+        run: dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}"
