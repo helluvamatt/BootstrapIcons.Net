@@ -24,4 +24,4 @@ jobs:
           npm ci
           npm run build
       - name: Build
-        run: dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}"
+        run: dotnet build --no-restore BootstrapIcons.Wpf.sln
