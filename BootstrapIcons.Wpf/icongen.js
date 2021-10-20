@@ -53,28 +53,28 @@ const writeSummary = async function(handle, text, indentLevel) {
             
             let svgPath = null;
             
-            let path = symbol.querySelector('path');
-            if (path)
+            let children = symbol.querySelectorAll('*');
+            if (children.length)
             {
-                svgPath = path.getAttribute('d');
-            }
-            
-            if (!svgPath)
-            {
-                // Convert the SVG circle into a path
-                // https://stackoverflow.com/questions/5737975/circle-drawing-with-svgs-arc-path/10477334#10477334
-                let circle = symbol.querySelector('circle');
-                if (circle)
-                {
-                    let cx = parseFloat(circle.getAttribute('cx'));
-                    let cy = parseFloat(circle.getAttribute('cy'));
-                    let r = parseFloat(circle.getAttribute('r'));
-                    
-                    if (!Number.isNaN(cx) && !Number.isNaN(cy) && !Number.isNaN(r)) {
-                        // M cx-r cy
-                        // a r,r 0 1,0 (r * 2),0
-                        // a r,r 0 1,0 -(r * 2),0
-                        svgPath = `M ${cx - r},${cy} a ${r},${r} 0 1,0 ${r * 2},0 a ${r},${r} 0 1,0 -${r * 2},0`;
+                svgPath = '';
+                for (const child of children) {
+                    if (child.localName === 'path') {
+                        svgPath += child.getAttribute('d');
+                        svgPath += ' ';
+                    } else if (child.localName === 'circle') {
+                        // Convert the SVG circle into a path
+                        // https://stackoverflow.com/questions/5737975/circle-drawing-with-svgs-arc-path/10477334#10477334
+                        let cx = parseFloat(child.getAttribute('cx'));
+                        let cy = parseFloat(child.getAttribute('cy'));
+                        let r = parseFloat(child.getAttribute('r'));
+
+                        if (!Number.isNaN(cx) && !Number.isNaN(cy) && !Number.isNaN(r)) {
+                            // M cx-r cy
+                            // a r,r 0 1,0 (r * 2),0
+                            // a r,r 0 1,0 -(r * 2),0
+                            svgPath += `M ${cx - r},${cy} a ${r},${r} 0 1,0 ${r * 2},0 a ${r},${r} 0 1,0 -${r * 2},0`;
+                            svgPath += ' ';
+                        }
                     }
                 }
             }
