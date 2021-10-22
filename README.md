@@ -16,7 +16,7 @@ In your XAML top-level element (Window, Page, etc...) reference the following na
 ```
 <Window
 ...
-    xmlns:bi="https://github.com/helluvamatt/BootstrapIcons.Wpf
+    xmlns:bi="https://github.com/helluvamatt/BootstrapIcons.Wpf/"
 ...
 >
 ```
