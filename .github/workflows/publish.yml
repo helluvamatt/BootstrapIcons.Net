@@ -26,13 +26,17 @@ jobs:
         run: dotnet restore
       - name: Restore Node.js dependencies
         run: |
-          cd BootstrapIcons.Wpf
+          cd BootstrapIcons.Shared
           npm ci
       - name: Pre-Build
         run: |
-          cd BootstrapIcons.Wpf
+          cd BootstrapIcons.Shared
           npm run build
       - name: Build
-        run: dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.Wpf/BootstrapIcons.Wpf.csproj
+        run: |
+          dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.Wpf/BootstrapIcons.Wpf.csproj
+          dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.AspNetCore/BootstrapIcons.AspNetCore.csproj
       - name: Publish NuGet package
-        run: dotnet nuget push BootstrapIcons.Wpf/bin/Release/BootstrapIcons.Wpf.${{ steps.vars.outputs.version }}.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s "https://nuget.pkg.github.com/helluvamatt/index.json"
+        run: |
+          dotnet nuget push BootstrapIcons.Wpf/bin/Release/BootstrapIcons.Wpf.${{ steps.vars.outputs.version }}.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s "https://nuget.pkg.github.com/helluvamatt/index.json"
+          dotnet nuget push BootstrapIcons.AspNetCore/bin/Release/BootstrapIcons.AspNetCore.${{ steps.vars.outputs.version }}.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s "https://nuget.pkg.github.com/helluvamatt/index.json"

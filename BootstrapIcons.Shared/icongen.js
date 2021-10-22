@@ -9,7 +9,7 @@ const bootstrapIconData = require('./node_modules/bootstrap-icons/font/bootstrap
 const bootstrapIconSvg = './node_modules/bootstrap-icons/bootstrap-icons.svg';
 const jsdomOpts = {};
 
-const namespace = 'BootstrapIcons.Wpf';
+const namespace = 'BootstrapIcons.Net';
 
 const writeSummary = async function(handle, text, indentLevel) {
     const indent = '\t'.repeat(indentLevel);

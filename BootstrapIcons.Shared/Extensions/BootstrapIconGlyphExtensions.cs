@@ -1,35 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using BootstrapIcons.Wpf.Attributes;
+using BootstrapIcons.Net.Attributes;
 
-namespace BootstrapIcons.Wpf.Extensions
+namespace BootstrapIcons.Net.Extensions
 {
     public static class BootstrapIconGlyphExtensions
     {
-        /// <summary>
-        /// Create a <see cref="Path" /> from the <see cref="BootstrapIconGlyph" />
-        /// </summary>
-        /// <param name="glyph">The icon glyph</param>
-        /// <param name="foregroundBrush">A brush to use for the icon fill</param>
-        /// <returns>The <see cref="Path"/></returns>
-        public static Path? CreatePath(this BootstrapIconGlyph glyph, Brush foregroundBrush)
-        {
-            if (glyph.GetSvg(out string? strPath, out int width, out int height))
-            {
-                return new Path
-                {
-                    Data = Geometry.Parse(strPath),
-                    Width = width,
-                    Height = height,
-                    Fill = foregroundBrush
-                };
-            }
-            return null;
-        }
-
         /// <summary>
         /// Extract the SVG path, width, and height for the given glyph
         /// </summary>
@@ -43,9 +19,9 @@ namespace BootstrapIcons.Wpf.Extensions
             path = null;
             width = -1;
             height = -1;
-            Type enumType = typeof(BootstrapIconGlyph);
+            TypeInfo enumType = typeof(BootstrapIconGlyph).GetTypeInfo();
             MemberInfo[] memberInfos = enumType.GetMember(glyph.ToString());
-            MemberInfo? enumValueMemberInfo = memberInfos.FirstOrDefault(m => m.DeclaringType == enumType);
+            MemberInfo? enumValueMemberInfo = memberInfos.FirstOrDefault(m => m.DeclaringType == enumType.AsType());
             SvgPathAttribute? svgPathAttribute = enumValueMemberInfo?.GetCustomAttribute<SvgPathAttribute>();
             if (svgPathAttribute is null) return false;
             path = svgPathAttribute.Path;

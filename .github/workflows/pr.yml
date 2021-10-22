@@ -24,4 +24,4 @@ jobs:
           npm ci
           npm run build
       - name: Build
-        run: dotnet build --no-restore BootstrapIcons.Wpf.sln
+        run: dotnet build --no-restore BootstrapIcons.Net.sln

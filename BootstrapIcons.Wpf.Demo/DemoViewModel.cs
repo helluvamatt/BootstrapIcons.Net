@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using BootstrapIcons.Net;
 
 namespace BootstrapIcons.Wpf.Demo
 {

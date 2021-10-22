@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BootstrapIcons.Wpf.Attributes
+namespace BootstrapIcons.Net.Attributes
 {
     [AttributeUsage(AttributeTargets.Field)]
     internal sealed class IconIdAttribute : Attribute

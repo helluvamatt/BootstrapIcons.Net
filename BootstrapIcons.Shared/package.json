@@ -1,10 +1,10 @@
 {
-  "name": "bootstrap-icons-wpf",
+  "name": "bootstrap-icons-net",
   "version": "1.6.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/helluvamatt/BootstrapIcons.Wpf"
+    "url": "https://github.com/helluvamatt/BootstrapIcons.Net"
   },
   "devDependencies": {
     "camelcase": "^6.2.0",

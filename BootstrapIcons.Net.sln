@@ -19,6 +19,10 @@ EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootstrapIcons.Wpf.Demo", "BootstrapIcons.Wpf.Demo\BootstrapIcons.Wpf.Demo.csproj", "{1DE6548D-3CB7-4913-AFE3-37461AA44688}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "BootstrapIcons.Shared", "BootstrapIcons.Shared\BootstrapIcons.Shared.shproj", "{4C1EE482-770F-432C-AAFE-B544E48F32CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootstrapIcons.AspNetCore", "BootstrapIcons.AspNetCore\BootstrapIcons.AspNetCore.csproj", "{C48760E4-ED41-4CBB-921B-D2A9D80AD1B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DE6548D-3CB7-4913-AFE3-37461AA44688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48760E4-ED41-4CBB-921B-D2A9D80AD1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48760E4-ED41-4CBB-921B-D2A9D80AD1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48760E4-ED41-4CBB-921B-D2A9D80AD1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48760E4-ED41-4CBB-921B-D2A9D80AD1B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{45A2579A-6C16-47B9-9ACF-1DC7544BFAAE} = {FB045C0A-FF30-49F5-B959-0170FC7E74C1}
