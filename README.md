@@ -13,7 +13,7 @@ Bootstrap icons for .NET
 
 ### Usage
 
-In your `Views/_ViewStart.cshtml`, add a reference to the included tag helper:
+In your `Views/_ViewImports.cshtml`, add a reference to the included tag helper:
 
 ```cshtml
 @addTagHelper *, BootstrapIcons.AspNetCore
