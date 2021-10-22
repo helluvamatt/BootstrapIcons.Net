@@ -14,8 +14,4 @@
     <Compile Include="$(MSBuildThisFileDirectory)BootstrapIconGlyph.generated.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\BootstrapIconGlyphExtensions.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)icongen.js" />
-    <Content Include="$(MSBuildThisFileDirectory)package.json" />
-  </ItemGroup>
 </Project>
