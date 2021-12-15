@@ -25,13 +25,9 @@ jobs:
       - name: Restore .NET dependencies
         run: dotnet restore
       - name: Restore Node.js dependencies
-        run: |
-          cd BootstrapIcons.Shared
-          npm ci
+        run: npm ci
       - name: Pre-Build
-        run: |
-          cd BootstrapIcons.Shared
-          npm run build
+        run: npm run build
       - name: Build
         run: |
           dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.Wpf/BootstrapIcons.Wpf.csproj

@@ -3,7 +3,7 @@ const fs = require('fs/promises');
 const camelCase = require('camelcase');
 const { JSDOM } = require('jsdom');
 
-const enumCsPath = path.resolve(__dirname, 'BootstrapIconGlyph.generated.cs');
+const enumCsPath = path.resolve(__dirname, 'BootstrapIcons.Shared/BootstrapIconGlyph.generated.cs');
 
 const bootstrapIconData = require('./node_modules/bootstrap-icons/font/bootstrap-icons.json');
 const bootstrapIconSvg = './node_modules/bootstrap-icons/bootstrap-icons.svg';
@@ -42,10 +42,15 @@ const writeSummary = async function(handle, text, indentLevel) {
         await handle.write(`\t\tNone = 0,\r\n`);
         for (let id in bootstrapIconData) {
             if (!bootstrapIconData.hasOwnProperty(id)) continue;
-            let identifier = camelCase(id, {pascalCase: true});
             
             let symbol = allSvgIcons.window.document.getElementById(id);
-            if (!symbol) throw new Error('Failed to find SVG symbol: ' + id);
+            
+            // If the symbol was not found, the ID is likely an alias, so ignore it
+            if (!symbol) continue;
+
+            // Get a PascalCase identifier which is safe to use for an enum member in C#
+            let identifier = camelCase(id, {pascalCase: true});
+            if (!/^[a-zA-Z_]/.test(identifier)) identifier = '_' + identifier;
             
             let viewBox = symbol.getAttribute('viewBox').split(' ');
             let svgWidth = viewBox[2];
