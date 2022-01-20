@@ -21,12 +21,19 @@ namespace BootstrapIcons.Wpf
 
         public BootstrapIcon()
         {
-            IsVisibleChanged += (_, _) => CoerceValue(SpinProperty);
+            IsVisibleChanged += OnIsVisibleChanged;
         }
 
-        private static void OpacityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OpacityChanged(DependencyObject owner, DependencyPropertyChangedEventArgs args)
         {
-            d.CoerceValue(SpinProperty);
+            owner.CoerceValue(SpinProperty);
+            owner.CoerceValue(PulseProperty);
+        }
+
+        private void OnIsVisibleChanged(object owner, DependencyPropertyChangedEventArgs args)
+        {
+            CoerceValue(SpinProperty);
+            CoerceValue(PulseProperty);
         }
 
         #region Properties
