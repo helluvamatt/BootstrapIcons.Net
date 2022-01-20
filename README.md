@@ -6,10 +6,11 @@ Bootstrap icons for .NET
 
 ## BootstrapIcons.AspNetCore
 
+[![NuGet](https://img.shields.io/nuget/v/BootstrapIcons.AspNetCore)](https://www.nuget.org/packages/BootstrapIcons.AspNetCore/)
+
 ### Install
 
-- Add GitHub Packages source to NuGet: `https://nuget.pkg.github.com/helluvamatt/index.json`
-- Install `BootstrapIcons.AspNetCore`
+- Install `BootstrapIcons.AspNetCore` from nuget.org
 
 ### Usage
 
@@ -29,10 +30,11 @@ This will include the SVG path(s) for the icon inside the SVG element. Font-base
 
 ## BootstrapIcons.WPF
 
+[![NuGet](https://img.shields.io/nuget/v/BootstrapIcons.WPF)](https://www.nuget.org/packages/BootstrapIcons.WPF/)
+
 ### Install
 
-- Add GitHub Packages source to NuGet: `https://nuget.pkg.github.com/helluvamatt/index.json`
-- Install `BootstrapIcons.Wpf`
+- Install `BootstrapIcons.Wpf` from nuget.org
 
 ### Usage
 

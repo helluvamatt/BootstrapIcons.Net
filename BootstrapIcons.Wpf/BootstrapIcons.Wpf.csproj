@@ -16,8 +16,13 @@
         <RepositoryUrl>https://github.com/helluvamatt/BootstrapIcons.Net</RepositoryUrl>
         <RepositoryType>github</RepositoryType>
         <PackageTags>wpf, bootstrap, icons</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <Import Project="..\BootstrapIcons.Shared\BootstrapIcons.Shared.projitems" Label="Shared" />
+
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
 </Project>

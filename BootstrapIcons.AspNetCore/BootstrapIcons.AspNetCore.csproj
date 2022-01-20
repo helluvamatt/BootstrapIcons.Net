@@ -15,6 +15,7 @@
         <RepositoryUrl>https://github.com/helluvamatt/BootstrapIcons.Net</RepositoryUrl>
         <RepositoryType>github</RepositoryType>
         <PackageTags>wpf, bootstrap, icons</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -26,6 +27,10 @@
     <ItemGroup>
         <StaticWebAsset Remove="**\*.js" />
         <StaticWebAsset Remove="**\*.json" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
