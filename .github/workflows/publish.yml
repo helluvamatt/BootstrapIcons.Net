@@ -45,7 +45,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           prerelease: ${{ env.PRERELEASE }}
-          generate-release-notes: true
+          generate_release_notes: true
           files: |
             LICENSE
             BootstrapIcons.Wpf/bin/${{ env.CONFIGURATION }}/BootstrapIcons.Wpf.${{ env.VERSION }}.nupkg
