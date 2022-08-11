@@ -4,7 +4,6 @@
         <TargetFramework>net5.0</TargetFramework>
         <LangVersion>default</LangVersion>
         <Nullable>enable</Nullable>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Version>0.0.0-dev</Version>
         <Title>Bootstrap icons for ASP.NET Core</Title>
         <Authors>Matt Schneeberger</Authors>
@@ -28,7 +27,7 @@
         <StaticWebAsset Remove="**\*.js" />
         <StaticWebAsset Remove="**\*.json" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <None Include="..\README.md" Pack="true" PackagePath="\" />
     </ItemGroup>

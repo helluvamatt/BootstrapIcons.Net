@@ -5,7 +5,6 @@
         <LangVersion>default</LangVersion>
         <Nullable>enable</Nullable>
         <UseWpf>true</UseWpf>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Version>0.0.0-dev</Version>
         <Title>Bootstrap icons for WPF</Title>
         <Authors>Matt Schneeberger</Authors>
