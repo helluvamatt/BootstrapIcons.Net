@@ -26,4 +26,10 @@ jobs:
       - name: Build
         run: dotnet build --no-restore BootstrapIcons.Net.sln
       - name: Test
-        run: dotnet test --no-restore --logger "trx;LogFileName=test-results.trx" BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
+        run: dotnet test --no-restore --no-build BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: test-results
+          path: '*.trx'
