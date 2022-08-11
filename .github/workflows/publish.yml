@@ -14,7 +14,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Variables
         id: vars
-        run: echo ::set-output name=version::${GITHUB_REF#refs/*/v}
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/*/v}" >> $GITHUB_ENV
+          echo "PRERELEASE=`[[ ${GITHUB_REF#refs/*/v*-} == ${GITHUB_REF} ]] && echo 'false' || echo 'true'`" >> $GITHUB_ENV
+          echo "CONFIGURATION=`[[ ${GITHUB_REF#refs/*/v*-} == ${GITHUB_REF} ]] && echo 'Release' || echo 'Debug'`" >> $GITHUB_ENV
         shell: bash
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
@@ -28,11 +31,22 @@ jobs:
         run: npm ci
       - name: Pre-Build
         run: npm run build
-      - name: Build
+      - name: Run Tests
+        run: dotnet test --no-restore BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
+      - name: Build NuGet packages
         run: |
-          dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.Wpf/BootstrapIcons.Wpf.csproj
-          dotnet build --no-restore --configuration Release -p:Version="${{ steps.vars.outputs.version }}" -p:PackageVersion="${{ steps.vars.outputs.version }}" BootstrapIcons.AspNetCore/BootstrapIcons.AspNetCore.csproj
-      - name: Publish NuGet package
+          dotnet pack --no-restore --configuration ${{ env.CONFIGURATION }} -p:Version="${{ env.VERSION }}" -p:PackageVersion="${{ env.VERSION }}" BootstrapIcons.Wpf/BootstrapIcons.Wpf.csproj
+          dotnet pack --no-restore --configuration ${{ env.CONFIGURATION }} -p:Version="${{ env.VERSION }}" -p:PackageVersion="${{ env.VERSION }}" BootstrapIcons.AspNetCore/BootstrapIcons.AspNetCore.csproj
+      - name: Publish NuGet packages
         run: |
-          dotnet nuget push BootstrapIcons.Wpf/bin/Release/BootstrapIcons.Wpf.${{ steps.vars.outputs.version }}.nupkg -k ${{ secrets.NUGET_TOKEN }} -s "https://api.nuget.org/v3/index.json"
-          dotnet nuget push BootstrapIcons.AspNetCore/bin/Release/BootstrapIcons.AspNetCore.${{ steps.vars.outputs.version }}.nupkg -k ${{ secrets.NUGET_TOKEN }} -s "https://api.nuget.org/v3/index.json"
+          dotnet nuget push BootstrapIcons.Wpf/bin/${{ env.CONFIGURATION }}/BootstrapIcons.Wpf.${{ env.VERSION }}.nupkg -k ${{ secrets.NUGET_TOKEN }} -s "https://api.nuget.org/v3/index.json"
+          dotnet nuget push BootstrapIcons.AspNetCore/bin/${{ env.CONFIGURATION }}/BootstrapIcons.AspNetCore.${{ env.VERSION }}.nupkg -k ${{ secrets.NUGET_TOKEN }} -s "https://api.nuget.org/v3/index.json"
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: ${{ env.PRERELEASE }}
+          generate-release-notes: true
+          files: |
+            LICENSE
+            BootstrapIcons.Wpf/bin/${{ env.CONFIGURATION }}/BootstrapIcons.Wpf.${{ env.VERSION }}.nupkg
+            BootstrapIcons.AspNetCore/bin/${{ env.CONFIGURATION }}/BootstrapIcons.AspNetCore.${{ env.VERSION }}.nupkg
