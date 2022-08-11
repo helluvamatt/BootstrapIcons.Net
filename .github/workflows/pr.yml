@@ -25,3 +25,5 @@ jobs:
           npm run build
       - name: Build
         run: dotnet build --no-restore BootstrapIcons.Net.sln
+      - name: Test
+        run: dotnet test --no-restore BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
