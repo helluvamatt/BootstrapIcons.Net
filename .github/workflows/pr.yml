@@ -17,16 +17,14 @@ jobs:
           dotnet-version: 6.0.x
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.4.1
-      - name: Restore .NET dependencies
-        run: dotnet restore
       - name: Pre-Build
         run: |
           npm ci
           npm run build
       - name: Build
-        run: dotnet build --no-restore BootstrapIcons.Net.sln
+        run: dotnet build --nologo BootstrapIcons.Net.sln
       - name: Test
-        run: dotnet test --no-restore --no-build BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
+        run: dotnet test --nologo --no-build --logger "trx;LogFileName=BootstrapIcons.AspNetCore.Tests.trx" --results-directory . BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
       - name: Upload Test Results
         uses: actions/upload-artifact@v3
         if: ${{ always() }}
