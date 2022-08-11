@@ -26,4 +26,4 @@ jobs:
       - name: Build
         run: dotnet build --no-restore BootstrapIcons.Net.sln
       - name: Test
-        run: dotnet test --no-restore BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
+        run: dotnet test --no-restore --logger "trx;LogFileName=test-results.trx" BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
