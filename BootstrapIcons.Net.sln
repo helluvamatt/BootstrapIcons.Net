@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootstrapIcons.Wpf", "BootstrapIcons.Wpf\BootstrapIcons.Wpf.csproj", "{22D80E0D-4C4F-4271-8215-2426EA4A3B87}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{FB045C0A-FF30-49F5-B959-0170FC7E74C1}"
+	ProjectSection(SolutionItems) = preProject
+		.github\release.yml = .github\release.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{45A2579A-6C16-47B9-9ACF-1DC7544BFAAE}"
 ProjectSection(SolutionItems) = preProject
