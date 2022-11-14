@@ -11,7 +11,7 @@
     "jsdom": "^20.0.0"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.9.1"
+    "bootstrap-icons": "^1.10.2"
   },
   "scripts": {
     "build": "node icongen.js"
