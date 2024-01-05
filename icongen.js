@@ -1,11 +1,15 @@
-const path = require('path');
-const fs = require('fs/promises');
-const camelCase = require('camelcase');
-const { JSDOM } = require('jsdom');
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+import { readFile, open } from 'fs/promises';
+import camelcase from 'camelcase';
+import { JSDOM } from 'jsdom';
 
-const enumCsPath = path.resolve(__dirname, 'BootstrapIcons.Shared/BootstrapIconGlyph.generated.cs');
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const bootstrapIconData = require('./node_modules/bootstrap-icons/font/bootstrap-icons.json');
+const enumCsPath = resolve(__dirname, 'BootstrapIcons.Shared/BootstrapIconGlyph.generated.cs');
+
+const bootstrapIconDataPath = './node_modules/bootstrap-icons/font/bootstrap-icons.json';
+const bootstrapIconData = JSON.parse(await readFile(bootstrapIconDataPath, { encoding: 'utf8' }));
 const bootstrapIconSvg = './node_modules/bootstrap-icons/bootstrap-icons.svg';
 const jsdomOpts = {};
 
@@ -21,7 +25,7 @@ const writeSummary = async function(handle, text, indentLevel) {
 (async function() {
     let handle;
     try {
-        handle = await fs.open(enumCsPath, 'w');
+        handle = await open(enumCsPath, 'w');
         let allSvgIcons = await JSDOM.fromFile(bootstrapIconSvg, jsdomOpts);
 
         await handle.write('//------------------------------------------------------------------------------\r\n');
@@ -49,7 +53,7 @@ const writeSummary = async function(handle, text, indentLevel) {
             if (!symbol) continue;
 
             // Get a PascalCase identifier which is safe to use for an enum member in C#
-            let identifier = camelCase(id, {pascalCase: true});
+            let identifier = camelcase(id, {pascalCase: true});
             if (!/^[a-zA-Z_]/.test(identifier)) identifier = '_' + identifier;
 
             let viewBox = symbol.getAttribute('viewBox').split(' ');
