@@ -3,6 +3,7 @@
 bin/
 obj/
 node_modules/
+*.user
 
 # Project specific excludes
 BootstrapIconGlyph.generated.cs
