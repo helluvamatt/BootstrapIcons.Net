@@ -18,7 +18,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
     <Import Project="..\BootstrapIcons.Shared\BootstrapIcons.Shared.projitems" Label="Shared" />
