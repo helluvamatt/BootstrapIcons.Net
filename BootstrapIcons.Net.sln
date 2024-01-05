@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{FB045C0A-FF30-49F5-B959-0170FC7E74C1}"
 	ProjectSection(SolutionItems) = preProject
 		.github\release.yml = .github\release.yml
+		.github\dependabot.yml = .github\dependabot.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{45A2579A-6C16-47B9-9ACF-1DC7544BFAAE}"
