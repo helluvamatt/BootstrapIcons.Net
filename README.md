@@ -1,5 +1,5 @@
 # BootstrapIcons.Net
-Bootstrap icons for .NET
+[Bootstrap Icons](https://icons.getbootstrap.com) for [.NET](https://dotnet.microsoft.com) applications.
 
 [![Build and Publish Package](https://github.com/helluvamatt/BootstrapIcons.Net/actions/workflows/publish.yml/badge.svg)](https://github.com/helluvamatt/BootstrapIcons.Net/actions/workflows/publish.yml)
 [![GitHub](https://img.shields.io/github/license/helluvamatt/BootstrapIcons.Net)](https://github.com/helluvamatt/BootstrapIcons.Net/blob/main/LICENSE)
