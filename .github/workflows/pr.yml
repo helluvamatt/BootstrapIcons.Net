@@ -26,7 +26,7 @@ jobs:
       - name: Test
         run: dotnet test --nologo --no-build --logger "trx;LogFileName=BootstrapIcons.AspNetCore.Tests.trx" --results-directory . BootstrapIcons.AspNetCore.Tests/BootstrapIcons.AspNetCore.Tests.csproj
       - name: Upload Test Results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: test-results
