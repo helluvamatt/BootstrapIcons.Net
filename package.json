@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "camelcase": "^8.0.0",
-    "jsdom": "^23.0.1"
+    "jsdom": "^24.0.0"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3"
