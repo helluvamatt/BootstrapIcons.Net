@@ -21,6 +21,16 @@ namespace BootstrapIcons.AspNetCore
                 return;
             }
 
+            if (output.Attributes.All(x => x.Name != "width"))
+            {
+                output.Attributes.SetAttribute("width", "1em");
+            }
+
+            if (output.Attributes.All(x => x.Name != "height"))
+            {
+                output.Attributes.SetAttribute("height", "1em");
+            }
+        
             output.Attributes.SetAttribute("xmlns", "");
             output.Attributes.SetAttribute("fill", "currentColor");
             output.Attributes.SetAttribute("focusable", "false");
