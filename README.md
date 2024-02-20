@@ -12,7 +12,7 @@
 
 - Install `BootstrapIcons.AspNetCore` from nuget.org
 
-### Usage
+### Usage -- TagHelper
 
 In your `Views/_ViewImports.cshtml`, add a reference to the included tag helper:
 
@@ -27,6 +27,35 @@ The `BootstrapIconTagHelper` is designed to work with the `svg` element. For exa
 ```
 
 This will include the SVG path(s) for the icon inside the SVG element. Font-based icons are not supported. See the [Bootstrap Icons Usage docs](https://icons.getbootstrap.com/#usage) for more information.
+
+### Usage -- HtmlHelper
+
+In the .cshtml page where you would like to use the helper, import the following namespaces:
+
+```cshtml
+@using BootstrapIcons.AspNetCore
+@using BootstrapIcons.Net
+```
+
+As with the `BootstrapIconTagHelper`, the HtmlHelper version is also designed to with with the `svg` element. Its required parameters are:
+- glyph [BootstrapIconGlyph] 
+- width [string]
+- height [string]
+
+For example:
+
+```cshtml
+@(
+    Html.BootstrapIcon(BootstrapIconGlyph.Gift, "30", "30");
+)
+```
+
+The HtmlHelper also supports adding optional user-defined HTML attributes to the `svg` element:
+```cshtml
+@(
+    Html.BootstrapIcon(BootstrapIconGlyph.Gift, "30", "30", new { aria_label = "gift", data_target = "#my-modal" });
+)
+```
 
 ## BootstrapIcons.WPF
 
