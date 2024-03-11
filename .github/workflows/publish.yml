@@ -42,7 +42,7 @@ jobs:
           dotnet nuget push BootstrapIcons.Wpf/bin/${{ env.CONFIGURATION }}/BootstrapIcons.Wpf.${{ env.VERSION }}.nupkg -k ${{ secrets.NUGET_TOKEN }} -s "https://api.nuget.org/v3/index.json"
           dotnet nuget push BootstrapIcons.AspNetCore/bin/${{ env.CONFIGURATION }}/BootstrapIcons.AspNetCore.${{ env.VERSION }}.nupkg -k ${{ secrets.NUGET_TOKEN }} -s "https://api.nuget.org/v3/index.json"
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           prerelease: ${{ env.PRERELEASE }}
           generate_release_notes: true
