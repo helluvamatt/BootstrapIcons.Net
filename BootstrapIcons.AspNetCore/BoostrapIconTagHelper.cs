@@ -21,12 +21,12 @@ namespace BootstrapIcons.AspNetCore
                 return;
             }
 
-            if (output.Attributes.All(x => x.Name != "width"))
+            if (!output.Attributes.TryGetAttribute("width", out _))
             {
                 output.Attributes.SetAttribute("width", "1em");
             }
 
-            if (output.Attributes.All(x => x.Name != "height"))
+            if (!output.Attributes.TryGetAttribute("height", out _))
             {
                 output.Attributes.SetAttribute("height", "1em");
             }
