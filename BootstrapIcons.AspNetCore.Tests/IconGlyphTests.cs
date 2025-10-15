@@ -1,7 +1,6 @@
 ﻿using System;
 using BootstrapIcons.Net;
 using BootstrapIcons.Net.Extensions;
-using FluentAssertions;
 using NUnit.Framework;
 
 namespace BootstrapIcons.AspNetCore.Tests;
@@ -20,10 +19,13 @@ public class IconGlyphTests
             bool hasSvg = glyph.GetSvg(out string? path, out int width, out int height);
 
             // Assert
-            hasSvg.Should().BeTrue($"the GetSvg method should always return true for {nameof(BootstrapIconGlyph)}.{glyph}");
-            path.Should().NotBeNullOrWhiteSpace("the BootstrapIconGlyph.{0} path must have some text", glyph);
-            width.Should().BePositive("the BootstrapIconGlyph.{0} must have a positive width", glyph);
-            height.Should().BePositive("the BootstrapIconGlyph.{0} must have a positive width", glyph);
+            Assert.Multiple(() =>
+            {
+                Assert.That(hasSvg, Is.True, $"the GetSvg method should always return true for {nameof(BootstrapIconGlyph)}.{glyph}");
+                Assert.That(path, Is.Not.Null.Or.Not.Empty, $"the BootstrapIconGlyph.{glyph} path must have some text");
+                Assert.That(width, Is.GreaterThan(0), $"the BootstrapIconGlyph.{glyph} must have a positive width");
+                Assert.That(height, Is.GreaterThan(0), $"the BootstrapIconGlyph.{glyph} must have a positive width");
+            });
         }
     }
 
@@ -37,6 +39,6 @@ public class IconGlyphTests
         bool hasSvg = glyph.GetSvg(out _, out _, out _);
 
         // Assert
-        hasSvg.Should().BeFalse($"the GetSvg method should always return false for {nameof(BootstrapIconGlyph)}.{nameof(BootstrapIconGlyph.None)}");
+        Assert.That(hasSvg, Is.False, $"the GetSvg method should always return false for {nameof(BootstrapIconGlyph)}.{nameof(BootstrapIconGlyph.None)}");
     }
 }

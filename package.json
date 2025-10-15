@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-icons-net",
-  "version": "1.11.0",
+  "version": "1.13.1",
   "private": true,
   "type": "module",
   "repository": {
@@ -9,10 +9,10 @@
   },
   "devDependencies": {
     "camelcase": "^8.0.0",
-    "jsdom": "^23.0.1"
+    "jsdom": "^27.0.0"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.13.1"
   },
   "scripts": {
     "build": "node icongen.js"

@@ -8,7 +8,7 @@
         <Title>Bootstrap icons for ASP.NET Core</Title>
         <Authors>Matt Schneeberger</Authors>
         <Description>Use Bootstrap icons with ASP.NET Core</Description>
-        <Copyright>© 2021 Matt Schneeberger</Copyright>
+        <Copyright>© 2021+ Matt Schneeberger</Copyright>
         <PackageProjectUrl>https://github.com/helluvamatt/BootstrapIcons.Net</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/helluvamatt/BootstrapIcons.Net</RepositoryUrl>
